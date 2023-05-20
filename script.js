@@ -62,10 +62,6 @@ function displayCities() {
     //     displayCities.append(showCities)
     var display = document.querySelector('#history');
 
-
-    //cannot figure out how to get appended text to be clickable
-
-
     display.innerHTML = '';
 
     for (var i = 0; i < cityList.length; i++) {
@@ -93,7 +89,6 @@ var search = function () {
             return response.json();
         })
         .then(function (response) {
-            // getting current day forcast
             fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + response[0].lat + "&lon=" + response[0].lon + "&units=imperial&appid=" + apiKey)
                 .then(function (response) {
                     return response.json();
@@ -142,11 +137,11 @@ var search = function () {
                         dateDisplay4.innerHTML = e
                         dateDisplay5.innerHTML = f
 
-                        futureIcon.src = "https://openweathermap.org/img/w/" + response.list[h].weather[0].icon + ".png" // need future
+                        futureIcon.src = "https://openweathermap.org/img/w/" + response.list[h].weather[0].icon + ".png" 
                         var futureHumidity = document.querySelector('#futureHumidity' + i)
-                        futureHumidity.textContent = "Humidity " + response.list[h].main.humidity + " %" // need future
+                        futureHumidity.textContent = "Humidity " + response.list[h].main.humidity + " %" 
                         var futureWind = document.querySelector('#futureWind' + i)
-                        futureWind.textContent = "Wind Speed " + response.list[h].wind.speed + " MPH" // Need future
+                        futureWind.textContent = "Wind Speed " + response.list[h].wind.speed + " MPH" 
                         var futureTemp = document.querySelector('#futureTemp' + i)
                         futureTemp.textContent = "Temperature " + response.list[h].main.temp + "\u00B0"
 
